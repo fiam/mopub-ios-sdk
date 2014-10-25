@@ -27,6 +27,12 @@ static NSString *const kMraidURLScheme = @"mraid";
 static NSString *const kMoPubURLScheme = @"mopub";
 static NSString *const kMoPubPrecacheCompleteHost = @"precacheComplete";
 
+@interface MRAdViewDisplayController (Internal)
+
+- (void)closeButtonPressed;
+
+@end
+
 @interface MRAdView () <UIGestureRecognizerDelegate, MRCommandDelegate>
 
 @property (nonatomic, strong) NSMutableData *data;

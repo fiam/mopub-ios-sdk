@@ -20,6 +20,12 @@
 
 #define MOPUB_CARRIER_INFO_DEFAULTS_KEY @"com.mopub.carrierinfo"
 
+@interface NSObject (TWTweetComposeViewControllerDecl)
+
++ (BOOL)canSendTweet;
+
+@end
+
 
 typedef enum
 {

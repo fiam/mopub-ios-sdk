@@ -35,6 +35,12 @@
 #import "MPStreamAdPlacementData.h"
 #import "MPStreamAdPlacer.h"
 
+@interface MPInterstitialCustomEvent (Legacy)
+
+- (void)customEventDidUnload;
+
+@end
+
 @interface MPInstanceProvider ()
 
 @property (nonatomic, strong) NSMutableDictionary *singletons;
