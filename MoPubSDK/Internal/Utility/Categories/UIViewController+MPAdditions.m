@@ -40,26 +40,25 @@
 - (void)mp_presentModalViewController:(UIViewController *)modalViewController
                              animated:(BOOL)animated
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= MP_IOS_5_0
-    if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
-        [self presentViewController:modalViewController animated:animated completion:nil];
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < MP_IOS_5_0
+    if (![self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
+        [self presentModalViewController:modalViewController animated:animated];
         return;
     }
 #endif
 
-    [self presentModalViewController:modalViewController animated:animated];
+    [self presentViewController:modalViewController animated:animated completion:nil];
 }
 
 - (void)mp_dismissModalViewControllerAnimated:(BOOL)animated
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= MP_IOS_5_0
-    if ([self respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
-        [self dismissViewControllerAnimated:animated completion:nil];
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < MP_IOS_5_0
+    if (![self respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
+        [self dismissModalViewControllerAnimated:animated];
         return;
     }
 #endif
-
-    [self dismissModalViewControllerAnimated:animated];
+    [self dismissViewControllerAnimated:animated completion:nil];
 }
 
 @end
